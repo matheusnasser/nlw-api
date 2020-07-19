@@ -1,9 +1,17 @@
 import express from "express";
 
+import PointsController from "./controllers/PointsController";
+import ItemsController from "./controllers/ItemsControllers";
+
 const routes = express.Router();
 
-routes.get("/", (req, res) => {
-  res.json({ message: "Deu certo " });
-});
+const pointsController = new PointsController();
+const itemsController = new ItemsController();
+
+routes.get("/items", itemsController.index);
+
+routes.post("/points", pointsController.create);
+routes.get("/points", pointsController.index);
+routes.get("/points", pointsController.show);
 
 export default routes;

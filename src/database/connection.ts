@@ -9,3 +9,4 @@ const connection = knex({
     database: "nlwdb",
   },
 });
+export default connection;
